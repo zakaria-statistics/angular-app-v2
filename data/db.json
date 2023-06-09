@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 12000,
+      "checked": true
+    },
+    {
+      "id": 2,
+      "name": "Printer",
+      "price": 1000,
+      "checked": true
+    },
+    {
+      "name": "smart tv",
+      "price": "12000",
+      "checked": true,
+      "id": 3
+    },
+    {
+      "name": "smart tv",
+      "price": "12000",
+      "checked": true,
+      "id": 4
+    },
+    {
+      "name": "smart tv",
+      "price": "12000",
+      "checked": true,
+      "id": 5
+    },
+    {
+      "name": "monitor",
+      "price": "20000",
+      "checked": true,
+      "id": 6
+    },
+    {
+      "name": "u",
+      "price": 0,
+      "checked": false,
+      "id": 7
+    },
+    {
+      "name": "q",
+      "price": 0,
+      "checked": false,
+      "id": 8
+    }
+  ]
+}
