@@ -1,0 +1,57 @@
+/* Container for alignment and spacing */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* Styling the text input */
+input[type="text"] {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+/* Change border color on focus */
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling the labels */
+label {
+  font-size: 18px;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* Styling the buttons */
+button {
+  padding: 8px 14px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Disabled button styling */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Optional: Adding space between the labels */
+label + label {
+  margin-left: 20px;
+}

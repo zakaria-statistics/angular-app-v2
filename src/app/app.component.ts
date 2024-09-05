@@ -13,7 +13,8 @@ export class AppComponent {
   actions : Array<any> = [
     {title:"Home", route:"/home", icon:"house"},
     {title:"Products", route:"/products", icon:"search"},
-    {title:"New product", route:"/newProduct", icon:"plus-circle"}
+    {title:"New product", route:"/newProduct", icon:"plus-circle"},
+    {title:"Test", route:"/test", icon:"activity"},
     ];
     currentAction:any;
     setCurrentAction(action:any){

@@ -3,20 +3,24 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-6">
-          <form id="form_login" [formGroup]="productForm" (ngSubmit)="saveProduct()">
+          <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
             <div class="mb-3">
               <label class="form-label">Name</label>
-              <input class="form-control" formControlName="name">
+              <input class="form-control" formControlName="name" placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <input class="form-control" formControlName="description" placeholder="Enter description">
             </div>
             <div class="mb-3">
               <label class="form-label">Price</label>
-              <input class="form-control" formControlName="price">
+              <input class="form-control" formControlName="price" placeholder="Enter price">
             </div>
             <div class="mb-3">
-              <label class="form-label">Checked</label>
+              <label class="form-label pe-3">Check</label>
               <input type="checkbox" class="form-check-input" formControlName="checked">
             </div>
-            <button [disabled]="productForm.invalid" class="btn btn-success">Save</button>
+            <button class="btn btn-success">Save</button>
           </form>
         </div>
       </div>

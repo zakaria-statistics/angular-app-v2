@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -10,22 +8,29 @@ import {Observable} from "rxjs";
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
+
   public products:Array<Product>=[];
-  public keyword: string = "";
+  public keyword: string ="";
+  public totalPages:number=0;
+  public pageSize:number=5;
+  public currentPage=1;
+
   constructor(private productService:ProductService) {
   }
-  getProducts(){
-        this.productService.getProducts(2,4)
-      .subscribe({
-        next : data =>{
-          this.products = data
-        },
-        error : err => {
-          console.log(err);
-        }
-      });
 
-    //this.products$=this.productService.getProducts();
+  getProducts(){
+    this.productService.getProducts(this.keyword, this.currentPage, this.pageSize).subscribe({
+      next: value => {
+        this.products = value.body as Array<Product>
+        let totalProducts = parseInt(<string>value.headers.get("X-Total-Count"));
+        this.totalPages = Math.floor(totalProducts / this.pageSize);
+        totalProducts % this.pageSize != 0 ? this.totalPages++ : true;
+        //console.log(`totalPorduct = ${totalProducts} and pageSize = ${this.pageSize} and totalPages = ${this.totalPages}`)
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
   }
   ngOnInit(){
     this.getProducts()
@@ -42,26 +47,27 @@ export class ProductsComponent implements OnInit{
           }else
             return p;
         })
-        //product.checked=!product.checked
-      }
+      },
+        error: err => {
+        console.log(err);
+        }
     })
   }
 
   handleDelete(product: Product) {
     if (confirm("Etes vous sur?"))
     this.productService.deleteProduct(product).subscribe({
-      next: value => {
-        //this.getProducts()
+      next: () => {
         this.products=this.products.filter(p=>p.id!=product.id);
+      },
+      error: err => {
+        console.log(err);
       }
     })
   }
 
-  searchProducts() {
-    this.productService.searchProducts(this.keyword).subscribe({
-      next :value => {
-        this.products=value;
-      }
-    })
+  handleGoToPage(page: number) {
+    this.currentPage = page;
+    this.getProducts()
   }
 }

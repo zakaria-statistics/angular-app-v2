@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../model/product.model";
 
@@ -7,27 +7,24 @@ import {Product} from "../model/product.model";
   providedIn: 'root'
 })
 export class ProductService {
+  private baseUrl = 'http://localhost:8089/products';
 
   constructor(private http:HttpClient) { }
-  public getProducts(page:number=1,size:number=4):Observable<Array<Product>>{
-    return this.http
-      .get<Array<Product>>(`http://localhost:8089/products?_page=${page}&_limit=${size}`);
+
+  public getProducts(keyword: string, page:number, size:number):Observable<HttpResponse<Object>>{
+    return this.http.get<Observable<HttpResponse<Object>>>(`${(this.baseUrl)}?name_like=${keyword}&_page=${page}&_limit=${size}`, {observe:"response"});
   }
+
   public checkProduct(product:Product):Observable<Product>{
-    return this.http.patch<Product>(`http://localhost:8089/products/${product.id}`,
+    return this.http.patch<Product>(`${(this.baseUrl)}/${product.id}`,
       {checked:!product.checked});
   }
+
   public deleteProduct(product:Product){
-    return this.http.delete<any>(`http://localhost:8089/products/${product.id}`);
+    return this.http.delete<any>(`${(this.baseUrl)}/${product.id}`);
   }
 
-  saveProduct(product: Product):Observable<Product> {
-    return this.http.post<Product>(`http://localhost:8089/products`,
-      product);
-
-  }
-
-  searchProducts(keyword: string):Observable<Array<Product>> {
-    return this.http.get<Array<Product>>(`http://localhost:8089/products?name_like=${keyword}`)
+  public saveProduct(product: Product) {
+    return this.http.post(`${(this.baseUrl)}`, product);
   }
 }

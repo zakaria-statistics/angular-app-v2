@@ -1,36 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Computer",
-      "price": 12000,
-      "checked": true
-    },
-    {
-      "id": 2,
-      "name": "Printer",
-      "price": 1000,
-      "checked": true
-    },
-    {
-      "name": "smart tv",
-      "price": "12000",
-      "checked": true,
-      "id": 3
-    },
-    {
-      "name": "smart tv",
-      "price": "12000",
-      "checked": true,
-      "id": 4
-    },
-    {
-      "name": "smart tv",
-      "price": "12000",
-      "checked": true,
-      "id": 5
-    },
-    {
       "name": "monitor",
       "price": "20000",
       "checked": true,
@@ -47,6 +17,62 @@
       "price": 0,
       "checked": false,
       "id": 8
+    },
+    {
+      "name": "rgr",
+      "description": "rgrgrgr",
+      "price": "38383",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "name": "m",
+      "description": "m",
+      "price": "3567",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "rgr",
+      "description": "rgrgrgr",
+      "price": "38383",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "name": "m",
+      "description": "m",
+      "price": "3567",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "rgr",
+      "description": "rgrgrgr",
+      "price": "38383",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "name": "m",
+      "description": "m",
+      "price": "3567",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "rgr",
+      "description": "rgrgrgr",
+      "price": "38383",
+      "checked": true,
+      "id": 9
+    },
+    {
+      "name": "m",
+      "description": "m",
+      "price": "3567",
+      "checked": true,
+      "id": 10
     }
   ]
 }

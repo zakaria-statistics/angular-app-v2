@@ -1,0 +1,7 @@
+<div class="container">
+  <input type="text" [(ngModel)]="name">
+  <label>Name is: {{name}}</label>
+  <button (click)="decrement()" [disabled]="counter == 0">-</button>
+  <label>Counter: {{counter}}</label>
+  <button (click)="increment()" [disabled]="counter == 10">+</button>
+</div>
