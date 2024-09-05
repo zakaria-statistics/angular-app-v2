@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,7 @@ export class ProductsComponent implements OnInit{
   public pageSize:number=5;
   public currentPage=1;
 
-  constructor(private productService:ProductService) {
+  constructor(private productService:ProductService, private router:Router) {
   }
 
   getProducts(){
@@ -25,7 +26,6 @@ export class ProductsComponent implements OnInit{
         let totalProducts = parseInt(<string>value.headers.get("X-Total-Count"));
         this.totalPages = Math.floor(totalProducts / this.pageSize);
         totalProducts % this.pageSize != 0 ? this.totalPages++ : true;
-        //console.log(`totalPorduct = ${totalProducts} and pageSize = ${this.pageSize} and totalPages = ${this.totalPages}`)
       },
       error: err => {
         console.log(err)
@@ -54,20 +54,33 @@ export class ProductsComponent implements OnInit{
     })
   }
 
-  handleDelete(product: Product) {
-    if (confirm("Etes vous sur?"))
-    this.productService.deleteProduct(product).subscribe({
-      next: () => {
-        this.products=this.products.filter(p=>p.id!=product.id);
-      },
-      error: err => {
-        console.log(err);
-      }
-    })
+  handleDelete(productId: number) {
+    if (confirm("Are you sure?")) {
+      this.productService.deleteProduct(productId).subscribe({
+        next: () => {
+          this.products = this.products.filter(p => p.id != productId);
+
+          // If no products left on the current page, go to the previous page
+          if (this.products.length === 0 && this.currentPage > 1) {
+            this.currentPage--;
+          }
+          // Refresh product list after delete
+          this.getProducts();
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+    }
   }
+
 
   handleGoToPage(page: number) {
     this.currentPage = page;
     this.getProducts()
+  }
+
+  handleEdit(productId: number) {
+    this.router.navigateByUrl(`/editProduct/${productId}`);
   }
 }

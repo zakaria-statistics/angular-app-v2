@@ -20,11 +20,19 @@ export class ProductService {
       {checked:!product.checked});
   }
 
-  public deleteProduct(product:Product){
-    return this.http.delete<any>(`${(this.baseUrl)}/${product.id}`);
+  public deleteProduct(productId:number){
+    return this.http.delete<any>(`${(this.baseUrl)}/${productId}`);
   }
 
   public saveProduct(product: Product) {
     return this.http.post(`${(this.baseUrl)}`, product);
+  }
+
+  getProductById(productId: number):Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${productId}`);
+  }
+
+  updateProduct(product: Product):Observable<Product> {
+    return this.http.put<Product>(`${this.baseUrl}/${product.id}`, product);
   }
 }

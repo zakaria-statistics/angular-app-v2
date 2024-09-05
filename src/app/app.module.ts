@@ -10,6 +10,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TestComponent } from './test/test.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TestComponent } from './test/test.component';
     HomeComponent,
     ProductsComponent,
     NewProductComponent,
-    TestComponent
+    TestComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

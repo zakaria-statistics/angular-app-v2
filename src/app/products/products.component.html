@@ -26,9 +26,15 @@
               </button>
             </td>
             <td>
-              <button (click)="handleDelete(product)"
+              <button (click)="handleDelete(product.id)"
                 class="btn btn-outline-danger">
                 <i class="bi bi-trash"></i>
+              </button>
+            </td>
+            <td>
+              <button (click)="handleEdit(product.id)"
+                class="btn btn-outline-danger">
+                <i class="bi bi-pencil"></i>
               </button>
             </td>
           </tr>
