@@ -1,15 +1,16 @@
 <nav class="p-3 bg-primary navbar-dark">
   <ul class="nav nav-pills">
-    <li *ngFor = " let action of actions">
-      <button (click)="setCurrentAction(action)"
-      routerLink="{{action.route}}"
-      [class]="currentAction==action?'btn btn-light ms-1':'btn btn-outline-light ms-1'"
+    <li *ngFor="let action of actions" class="nav-item">
+      <button
+        (click)="setCurrentAction(action)"
+        routerLink="{{action.route}}"
+        [class]="currentAction == action ? 'btn btn-light mx-2 py-2' : 'btn btn-outline-light mx-2 py-2'"
       >
-      {{action.title}} <i class="bi bi-{{action.icon}}"></i>
-    </button>
+        {{ action.title }}
+        <i class="bi bi-{{ action.icon }}" style="margin-left: 8px;"></i>
+      </button>
     </li>
   </ul>
 </nav>
-<router-outlet>
-
-</router-outlet>
+<app-dashboard></app-dashboard>
+<router-outlet></router-outlet>

@@ -4,22 +4,22 @@
       "id": 1,
       "name": "Laptop",
       "description": "A powerful laptop for everyday use",
-      "price": 1200,
-      "checked": true
+      "price": 1222,
+      "checked": false
     },
     {
       "id": 2,
       "name": "Smartphone",
       "description": "Latest model smartphone with all modern features",
-      "price": 800800,
-      "checked": true
+      "price": 8,
+      "checked": false
     },
     {
       "id": 3,
       "name": "Headphones",
       "description": "Noise-cancelling over-ear headphones",
       "price": 250,
-      "checked": true
+      "checked": false
     },
     {
       "id": 4,
@@ -33,14 +33,14 @@
       "name": "Tablet",
       "description": "10-inch tablet with high-resolution display",
       "price": 300,
-      "checked": true
+      "checked": false
     },
     {
       "id": 6,
       "name": "Camera",
       "description": "DSLR camera with 24MP resolution",
       "price": 1100,
-      "checked": false
+      "checked": true
     },
     {
       "id": 7,
@@ -69,6 +69,48 @@
       "description": "Mechanical keyboard with RGB lighting",
       "price": 120,
       "checked": false
+    },
+    {
+      "name": "rrrfef",
+      "description": "fdfgdgddgt",
+      "price": 434,
+      "checked": true,
+      "id": 11
+    },
+    {
+      "name": "ffskjndfjk",
+      "description": "dmdgkjnddk",
+      "price": 346,
+      "checked": true,
+      "id": 12
+    },
+    {
+      "name": "dddddd",
+      "description": "ddfdddddddd",
+      "price": 333,
+      "checked": true,
+      "id": 13
+    },
+    {
+      "name": "eiuhwron",
+      "description": "rzrueih eihwrioe",
+      "price": 455,
+      "checked": false,
+      "id": 14
+    },
+    {
+      "name": "Scott",
+      "description": "the office manager",
+      "price": 4958,
+      "checked": true,
+      "id": 15
+    },
+    {
+      "name": "Beesly pam",
+      "description": "the reciptionist of the office",
+      "price": 2862,
+      "checked": true,
+      "id": 16
     }
   ]
 }

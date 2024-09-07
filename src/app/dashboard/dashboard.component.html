@@ -1,0 +1,40 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      <h1>Product Management Dashboard</h1>
+
+      <!-- Dashboard Overview -->
+      <div class="row">
+        <!-- Total Products -->
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary">
+            <div class="card-body">
+              <h5 class="card-title">Total Products</h5>
+              <p class="card-text">{{ this.appState.productsState.totalProducts }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checked Products -->
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-success">
+            <div class="card-body">
+              <h5 class="card-title">Checked Products</h5>
+              <p class="card-text">{{ totalCheckedProducts() }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unchecked Products -->
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-warning">
+            <div class="card-body">
+              <h5 class="card-title">Unchecked Products</h5>
+              <p class="card-text">{{ uncheckedProducts }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

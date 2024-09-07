@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../services/product.service";
@@ -55,5 +56,19 @@ export class EditProductComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  getErrorMessage(controlName: string): string {
+    const control = this.updatedProductFormGroup.get(controlName);
+
+    if (control?.hasError('required')) {
+      return 'This field is required.';
+    }
+
+    if (control?.hasError('min')) {
+      return 'Price must be a positive number.';
+    }
+
+    return '';
   }
 }
