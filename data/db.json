@@ -40,7 +40,7 @@
       "name": "Keyboard",
       "description": "Mechanical keyboard with RGB backlighting",
       "price": 100,
-      "checked": true
+      "checked": false
     },
     {
       "id": 8,
@@ -54,14 +54,21 @@
       "name": "Printer",
       "description": "All-in-one printer with scanning and copying functions",
       "price": 120,
-      "checked": true
+      "checked": false
     },
     {
       "id": 10,
       "name": "External Hard Drive",
       "description": "1TB external hard drive with USB 3.0 connectivity",
       "price": 90,
-      "checked": true
+      "checked": false
+    },
+    {
+      "name": "Smartphone",
+      "description": "test description for product",
+      "price": 576,
+      "checked": true,
+      "id": 11
     }
   ]
 }

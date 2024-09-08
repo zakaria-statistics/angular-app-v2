@@ -46,7 +46,7 @@ export class EditProductComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  handleUpdate() {
     let product:Product = this.updatedProductFormGroup.value;
     this.productService.updateProduct(product).subscribe({
       next:value => {
