@@ -6,7 +6,7 @@
     <div class="card-body">
       <!-- Search Bar -->
       <div class="mb-3 d-flex align-items-center">
-        <input type="text" class="form-control me-2" [(ngModel)]="appStateService.productsState.keyword" placeholder="Search products...">
+        <input type="text" class="form-control me-2" [(ngModel)]="appState.productsState.keyword" placeholder="Search products...">
         <button (click)="loadProducts()" class="btn btn-outline-success">
           <i class="bi bi-search"></i> Search
         </button>
@@ -24,7 +24,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let product of appStateService.productsState.products">
+        <tr *ngFor="let product of appState.productsState.products">
           <td>{{ product.name }}</td>
           <td>{{ product.description }}</td>
           <td>{{ product.price | currency }}</td>
@@ -48,16 +48,16 @@
       <!-- Pagination -->
       <nav>
         <ul class="pagination">
-          <li class="page-item" [ngClass]="{'disabled': this.appStateService.productsState.currentPage === 1}">
-            <button class="page-link" (click)="handleGoToPage(this.appStateService.productsState.currentPage - 1)">Previous</button>
+          <li class="page-item" [ngClass]="{'disabled': this.appState.productsState.currentPage === 1}">
+            <button class="page-link" (click)="handleGoToPage(this.appState.productsState.currentPage - 1)">Previous</button>
           </li>
-          <li class="page-item" *ngFor="let page of [].constructor(this.appStateService.productsState.totalPages); let i = index">
-            <button class="page-link" (click)="handleGoToPage(i + 1)" [ngClass]="{'active': this.appStateService.productsState.currentPage === i + 1}">
+          <li class="page-item" *ngFor="let page of [].constructor(this.appState.productsState.totalPages); let i = index">
+            <button class="page-link" (click)="handleGoToPage(i + 1)" [ngClass]="{'active': this.appState.productsState.currentPage === i + 1}">
               {{ i + 1 }}
             </button>
           </li>
-          <li class="page-item" [ngClass]="{'disabled': this.appStateService.productsState.currentPage === this.appStateService.productsState.totalPages}">
-            <button class="page-link" (click)="handleGoToPage(this.appStateService.productsState.currentPage + 1)">Next</button>
+          <li class="page-item" [ngClass]="{'disabled': this.appState.productsState.currentPage === this.appState.productsState.totalPages}">
+            <button class="page-link" (click)="handleGoToPage(this.appState.productsState.currentPage + 1)">Next</button>
           </li>
         </ul>
       </nav>

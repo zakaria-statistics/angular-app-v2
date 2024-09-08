@@ -1,116 +1,67 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Laptop",
-      "description": "A powerful laptop for everyday use",
-      "price": 1222,
-      "checked": false
-    },
-    {
       "id": 2,
       "name": "Smartphone",
       "description": "Latest model smartphone with all modern features",
-      "price": 8,
+      "price": 800,
       "checked": false
     },
     {
       "id": 3,
-      "name": "Headphones",
-      "description": "Noise-cancelling over-ear headphones",
-      "price": 250,
-      "checked": false
+      "name": "Tablet",
+      "description": "10.1 inch display, 64 GB storage, WiFi",
+      "price": 300,
+      "checked": true
     },
     {
       "id": 4,
       "name": "Smartwatch",
-      "description": "Stylish smartwatch with fitness tracking",
+      "description": "Fitness tracker with heart rate monitor",
       "price": 150,
       "checked": false
     },
     {
       "id": 5,
-      "name": "Tablet",
-      "description": "10-inch tablet with high-resolution display",
-      "price": 300,
-      "checked": false
-    },
-    {
-      "id": 6,
-      "name": "Camera",
-      "description": "DSLR camera with 24MP resolution",
-      "price": 1100,
+      "name": "Headphones",
+      "description": "Wireless over-ear headphones with noise cancellation",
+      "price": 200,
       "checked": true
     },
     {
+      "id": 6,
+      "name": "Monitor",
+      "description": "27 inch 4K UHD monitor with HDR support",
+      "price": 400,
+      "checked": false
+    },
+    {
       "id": 7,
-      "name": "Gaming Console",
-      "description": "Next-gen gaming console with 4K support",
-      "price": 500,
+      "name": "Keyboard",
+      "description": "Mechanical keyboard with RGB backlighting",
+      "price": 100,
       "checked": true
     },
     {
       "id": 8,
-      "name": "Bluetooth Speaker",
-      "description": "Portable Bluetooth speaker with great sound",
-      "price": 100,
+      "name": "Mouse",
+      "description": "Wireless gaming mouse with adjustable DPI",
+      "price": 80,
       "checked": false
     },
     {
       "id": 9,
-      "name": "Monitor",
-      "description": "27-inch 4K monitor",
-      "price": 450,
+      "name": "Printer",
+      "description": "All-in-one printer with scanning and copying functions",
+      "price": 120,
       "checked": true
     },
     {
       "id": 10,
-      "name": "Keyboard",
-      "description": "Mechanical keyboard with RGB lighting",
-      "price": 120,
-      "checked": false
-    },
-    {
-      "name": "rrrfef",
-      "description": "fdfgdgddgt",
-      "price": 434,
-      "checked": true,
-      "id": 11
-    },
-    {
-      "name": "ffskjndfjk",
-      "description": "dmdgkjnddk",
-      "price": 346,
-      "checked": true,
-      "id": 12
-    },
-    {
-      "name": "dddddd",
-      "description": "ddfdddddddd",
-      "price": 333,
-      "checked": true,
-      "id": 13
-    },
-    {
-      "name": "eiuhwron",
-      "description": "rzrueih eihwrioe",
-      "price": 455,
-      "checked": false,
-      "id": 14
-    },
-    {
-      "name": "Scott",
-      "description": "the office manager",
-      "price": 4958,
-      "checked": true,
-      "id": 15
-    },
-    {
-      "name": "Beesly pam",
-      "description": "the reciptionist of the office",
-      "price": 2862,
-      "checked": true,
-      "id": 16
+      "name": "External Hard Drive",
+      "description": "1TB external hard drive with USB 3.0 connectivity",
+      "price": 90,
+      "checked": true
     }
   ]
 }

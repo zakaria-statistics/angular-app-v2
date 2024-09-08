@@ -13,31 +13,53 @@ import {AppStateService} from "../services/app-state.service";
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService, private router: Router, public appStateService:AppStateService) {}
+  constructor(private productService: ProductService, private router: Router, public appState:AppStateService) {}
 
   ngOnInit() {
     this.loadProducts();
+    this.loadAllProductsForMetrics();
   }
 
   loadProducts() {
     this.productService.getProducts(
-      this.appStateService.productsState.keyword,
-      this.appStateService.productsState.currentPage,
-      this.appStateService.productsState.pageSize).pipe(
-      map(response => {
-        const totalProducts = parseInt(response.headers.get("X-Total-Count") || '0', 10);
-        this.appStateService.productsState.totalProducts = totalProducts;
-        this.appStateService.productsState.totalPages = Math.ceil(totalProducts / this.appStateService.productsState.pageSize);
-        return response.body as Product[];
-      }),
-      catchError(err => {
-        console.error('Failed to load products', err);
-        return of([]);
-      })
-    ).subscribe(products => {
+      this.appState.productsState.keyword,
+      this.appState.productsState.currentPage,
+      this.appState.productsState.pageSize).subscribe({
+      next: (response) => {
+        console.log(response.body)
+        let products:Array<Product> = response.body as Array<Product>;
+        let totalProducts:number = parseInt(response.headers.get('X-Total-Count') as string);
+        let totalPages:number = Math.ceil(totalProducts / this.appState.productsState.pageSize);
+        this.appState.setProductsState({
+          products:products,
+          totalPages:totalPages,
+          //totalProducts:totalProducts
+        });
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
 
-      this.appStateService.productsState.products = products;
-      this.appStateService.productsState.checkedProducts = products.filter((p:Product)=> p.checked).length;
+  loadAllProductsForMetrics() {
+    this.productService.getAllProducts().subscribe({
+      next: (products) => {
+        const totalProducts = products.length;
+        const checkedProducts = products.filter(product => product.checked).length;
+        const uncheckedProducts = totalProducts - checkedProducts;
+        let totalPrice = products.reduce((acc, product) => acc + product.price, 0);
+
+        this.appState.setProductsState({
+          totalProducts: totalProducts,
+          checkedProducts: checkedProducts,
+          uncheckedProducts: uncheckedProducts,
+          totalPrice:totalPrice
+        });
+      },
+      error: (err) => {
+        console.error('Error fetching all products:', err);
+      }
     });
   }
 
@@ -48,8 +70,9 @@ export class ProductsComponent implements OnInit {
         return of(product); // Return the unchanged product in case of error
       })
     ).subscribe(updatedProduct => {
-
-      this.appStateService.productsState.products = this.appStateService.productsState.products.map((p:Product) => p.id === product.id ? updatedProduct : p);
+      this.appState.productsState.products = this.appState.productsState.products.map((p:Product) => p.id === product.id ? updatedProduct : p);
+      // Recalculate metrics after a product is checked
+      this.loadAllProductsForMetrics();
     });
   }
 
@@ -61,18 +84,19 @@ export class ProductsComponent implements OnInit {
           return of(null);
         })
       ).subscribe(() => {
-        this.appStateService.productsState.products = this.appStateService.productsState.products.filter((p:Product) => p.id !== productId);
-        if (this.appStateService.productsState.products.length === 0 && this.appStateService.productsState.currentPage > 1) {
-          this.appStateService.productsState.currentPage--;
+        this.appState.productsState.products = this.appState.productsState.products.filter((p:Product) => p.id !== productId);
+        if (this.appState.productsState.products.length === 0 && this.appState.productsState.currentPage > 1) {
+          this.appState.productsState.currentPage--;
         }
         this.loadProducts();
+        this.loadAllProductsForMetrics();
       });
     }
   }
 
   handleGoToPage(page: number) {
-    if (page > 0 && page <= this.appStateService.productsState.totalPages) {
-      this.appStateService.productsState.currentPage = page;
+    if (page > 0 && page <= this.appState.productsState.totalPages) {
+      this.appState.productsState.currentPage = page;
       this.loadProducts();
     }
   }

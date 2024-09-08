@@ -1,36 +1,46 @@
 <div class="p-3">
-  <div class="card">
+  <div class="card shadow-lg">
     <div class="card-body">
       <h1>Product Management Dashboard</h1>
 
       <!-- Dashboard Overview -->
-      <div class="row">
+      <div class="row ">
         <!-- Total Products -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <div class="card text-white bg-primary">
             <div class="card-body">
               <h5 class="card-title">Total Products</h5>
-              <p class="card-text">{{ this.appState.productsState.totalProducts }}</p>
+              <p class="card-text">{{ this.appState.productsState.totalProducts }} item</p>
             </div>
           </div>
         </div>
 
         <!-- Checked Products -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <div class="card text-white bg-success">
             <div class="card-body">
               <h5 class="card-title">Checked Products</h5>
-              <p class="card-text">{{ totalCheckedProducts() }}</p>
+              <p class="card-text">{{ this.appState.productsState.checkedProducts }} item</p>
             </div>
           </div>
         </div>
 
         <!-- Unchecked Products -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <div class="card text-white bg-warning">
             <div class="card-body">
               <h5 class="card-title">Unchecked Products</h5>
-              <p class="card-text">{{ uncheckedProducts }}</p>
+              <p class="card-text">{{ this.appState.productsState.uncheckedProducts }} item</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total price -->
+        <div class="col-md-3 mb-3">
+          <div class="card text-white bg-danger">
+            <div class="card-body">
+              <h5 class="card-title">Total price</h5>
+              <p class="card-text">{{ this.appState.productsState.totalPrice | currency}}</p>
             </div>
           </div>
         </div>

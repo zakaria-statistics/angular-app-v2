@@ -15,6 +15,10 @@ export class ProductService {
     return this.http.get<Observable<HttpResponse<Object>>>(`${(this.baseUrl)}?name_like=${keyword}&_page=${page}&_limit=${size}`, {observe:"response"});
   }
 
+  public getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}`);
+  }
+
   public checkProduct(product:Product):Observable<Product>{
     return this.http.patch<Product>(`${(this.baseUrl)}/${product.id}`,
       {checked:!product.checked});
