@@ -5,7 +5,7 @@
       "name": "Smartphone",
       "description": "Latest model smartphone with all modern features",
       "price": 800,
-      "checked": false
+      "checked": true
     },
     {
       "id": 3,
@@ -69,6 +69,33 @@
       "price": 576,
       "checked": true,
       "id": 11
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "password": "MTIzNA==",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTcwMDU2Njc1NywiZXhwIjoxNzYxMTExMTExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg4ODgvYXV0aCIsIm5iZiI6MTcyMDU2Njc1NywiZmlyc3RuYW1lIjoiemFrYXJpYSIsImxhc3Rhbm1lIjoiZWwgbW91bW5hb3VpIiwiZW1haWwiOiJ6YWthcmlhQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiXX0.9tPw4bp5iEYA_D8_kv01OVLvEdQnhealvfjJOetltLI"
+    },
+    {
+      "id": "user2",
+      "password": "MTIzNA==",
+      "roles": [
+        "USER"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMiIsImlhdCI6MTcwMDU2Njc1NywiZXhwIjoxNzYxMTExMTExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg4ODgvYXV0aCIsIm5iZiI6MTcyMDU2Njc1NywiZmlyc3RuYW1lIjoiemFrYXJpYSIsImxhc3Rhbm1lIjoiZWwgbW91bW5hb3VpIiwiZW1haWwiOiJ6YWthcmlhQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiXX0.LXK-c0mA0gqXmtgpEoqzcXXQeEksTB7CGkJW1XTH0Y0"
+    },
+    {
+      "id": "admin",
+      "password": "MTIzNA==",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwMDU2Njc1NywiZXhwIjoxNzYxMTExMTExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg4ODgvYXV0aCIsIm5iZiI6MTcyMDU2Njc1NywiZmlyc3RuYW1lIjoiemFrYXJpYSIsImxhc3Rhbm1lIjoiZWwgbW91bW5hb3VpIiwiZW1haWwiOiJ6YWthcmlhQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiLCJBRE1JTiJdfQ.Uh1rvj0czXq0Ctx4EUB3jFtS98emSAOFESZVjaegR-Y"
     }
   ]
 }

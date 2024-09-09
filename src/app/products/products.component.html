@@ -19,8 +19,8 @@
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
-          <th>Checked</th>
-          <th>Actions</th>
+          <th *ngIf="appState.authState.roles.includes('ADMIN')">Checked</th>
+          <th *ngIf="appState.authState.roles.includes('ADMIN')">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,12 +28,12 @@
           <td>{{ product.name }}</td>
           <td>{{ product.description }}</td>
           <td>{{ product.price | currency }}</td>
-          <td>
+          <td *ngIf="appState.authState.roles.includes('ADMIN')">
             <button (click)="handleCheckProduct(product)" class="btn btn-outline-info">
               <i [ngClass]="product.checked ? 'bi bi-check' : 'bi bi-circle'"></i>
             </button>
           </td>
-          <td>
+          <td *ngIf="appState.authState.roles.includes('ADMIN')">
             <button (click)="handleEdit(product.id)" class="btn btn-outline-primary">
               <i class="bi bi-pencil"></i> Edit
             </button>

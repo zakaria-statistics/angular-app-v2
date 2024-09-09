@@ -1,18 +1,38 @@
-<nav class="p-3 bg-primary navbar-dark">
+<nav class="p-3 bg-dark navbar-dark d-flex justify-content-between align-items-center">
+  <!-- Left Side: Actions -->
   <ul class="nav nav-pills">
     <li *ngFor="let action of actions" class="nav-item">
       <button
         (click)="setCurrentAction(action)"
         routerLink="{{action.route}}"
-        [class]="currentAction == action ? 'btn btn-light mx-2 py-2' : 'btn btn-outline-light mx-2 py-2'"
+        class="btn mx-2 py-2"
+        [ngClass]="{
+          'btn-light': currentAction == action,
+          'btn-outline-light': currentAction != action
+        }"
       >
         {{ action.title }}
-        <i class="bi bi-{{ action.icon }}" style="margin-left: 8px;"></i>
+        <i class="bi bi-{{ action.icon }} ms-2"></i>
       </button>
     </li>
+    <!-- Loading Spinner -->
     <li class="nav-item ms-3" *ngIf="this.loadingService.isLoading$ | async">
-      <div class="spinner-border text-light" role="status">
-      </div>
+      <div class="spinner-border text-light" role="status"></div>
+    </li>
+  </ul>
+
+  <!-- Right Side: User Info / Authentication -->
+  <ul class="nav nav-pills">
+    <li *ngIf="appState.authState.isAuthenticated" class="d-flex align-items-center">
+      <span class="text-light me-2">{{ appState.authState.username }}</span>
+      <button (click)="handleLogout()" class="btn btn-outline-danger">
+        Logout <i class="bi bi-door-open ms-2"></i>
+      </button>
+    </li>
+    <li *ngIf="!appState.authState.isAuthenticated">
+      <button (click)="handleLogin()" class="btn btn-outline-success">
+        Login <i class="bi bi-door-closed ms-2"></i>
+      </button>
     </li>
   </ul>
 </nav>

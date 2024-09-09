@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AppStateService} from "../services/app-state.service";
 import {LoadingService} from "../services/loading.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +11,7 @@ import {LoadingService} from "../services/loading.service";
 export class NavBarComponent {
 
   actions : Array<any> = [
-    {title:"Home", route:"/admin/home", icon:"house"},
+    {title:"Home", route:"home", icon:"house"},
     {title:"Products", route:"/admin/products", icon:"search"},
     {title:"New product", route:"/admin/newProduct", icon:"plus-circle"},
     {title:"Test", route:"/admin/test", icon:"activity"},
@@ -20,6 +21,15 @@ export class NavBarComponent {
     this.currentAction=action
   }
   constructor(public appState:AppStateService,
-              public loadingService:LoadingService) {
+              public loadingService:LoadingService, private router:Router) {
+  }
+
+  handleLogout() {
+    this.appState.authState = {};
+    this.router.navigateByUrl("/login");
+  }
+
+  handleLogin() {
+    this.router.navigateByUrl("/login")
   }
 }

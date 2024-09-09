@@ -18,11 +18,20 @@ export class AppStateService {
     status:"",
     errorMessage:"",
   };
+  public authState:any={
+    isAuthenticated:false,
+    username:undefined,
+    roles:undefined,
+    token:undefined
+  }
 
   constructor(private productService: ProductService) {}
 
   public setProductsState(state: any): void {
     this.productsState = { ...this.productsState, ...state };
+  }
+  public setAuthState(state:any):void{
+    this.authState = {...this.authState, ...state};
   }
 
   public loadMetrics(): void {
