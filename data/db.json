@@ -47,7 +47,7 @@
       "name": "Mouse",
       "description": "Wireless gaming mouse with adjustable DPI",
       "price": 80,
-      "checked": false
+      "checked": true
     },
     {
       "id": 9,

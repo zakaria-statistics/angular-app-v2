@@ -1,0 +1,26 @@
+.container {
+  max-width: 900px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+p {
+  color: #495057;
+}

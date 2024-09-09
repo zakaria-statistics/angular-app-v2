@@ -10,10 +10,10 @@ import {LoadingService} from "../services/loading.service";
 export class NavBarComponent {
 
   actions : Array<any> = [
-    {title:"Home", route:"/home", icon:"house"},
-    {title:"Products", route:"/products", icon:"search"},
-    {title:"New product", route:"/newProduct", icon:"plus-circle"},
-    {title:"Test", route:"/test", icon:"activity"},
+    {title:"Home", route:"/admin/home", icon:"house"},
+    {title:"Products", route:"/admin/products", icon:"search"},
+    {title:"New product", route:"/admin/newProduct", icon:"plus-circle"},
+    {title:"Test", route:"/admin/test", icon:"activity"},
   ];
   currentAction:any;
   setCurrentAction(action:any){
