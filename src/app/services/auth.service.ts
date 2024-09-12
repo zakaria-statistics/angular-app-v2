@@ -13,7 +13,7 @@ export class AuthService {
 
   async login(username: string, password: string): Promise<boolean> {
     try {
-      let user: any = await firstValueFrom(this.http.get(`http://localhost:8089/users/${username}`));
+      let user: any = await firstValueFrom(this.http.get(`http://localhost:3000/users/${username}`));
 
       if (btoa(password) === user.password) {
         let token = user.token;

@@ -27,6 +27,11 @@ export class ProductsComponent implements OnInit {
       this.appState.productsState.pageSize).subscribe({
       next: (response) => {
         console.log(response.body);
+        // Check if the header exists
+        const totalCountHeader = response.headers.get('X-Total-Count');
+        const totalProductss = totalCountHeader ? parseInt(totalCountHeader, 10) : 0;
+
+        console.log(totalProductss); // Debugging purpose
         let products: Array<Product> = response.body as Array<Product>;
         let totalProducts: number = parseInt(response.headers.get('X-Total-Count') as string);
         let totalPages: number = Math.ceil(totalProducts / this.appState.productsState.pageSize);
